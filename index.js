@@ -36,7 +36,9 @@ app.post('/bfhl', (req, res) => {
 
     if (response.alphabets.length > 0) {
         response.highest_alphabet = [
-            response.alphabets.reduce((a, b) => (a > b ? a : b)),
+            response.alphabets.reduce((a, b) =>
+                a.toLowerCase() > b.toLowerCase() ? a : b,
+            ),
         ]
     }
 
